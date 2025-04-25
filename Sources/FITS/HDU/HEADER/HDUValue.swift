@@ -105,34 +105,6 @@ extension HDUValue {
             return false
         }
     }
-    
-    public static func ==<T: HDUValue>(lhs: HDUValue, rhs: T?) -> Bool {
-        guard type(of: lhs) == T.self else { return false }
-        if let right = rhs {
-            return lhs.hashable == right.hashable
-        } else {
-            return false
-        }
-    }
-    
-    public static func ==<T: HDUValue>(lhs: T?, rhs: HDUValue) -> Bool {
-        guard T.self == type(of: rhs) else { return false }
-        if let left = lhs {
-            return left.hashable == rhs.hashable
-        } else {
-            return false
-        }
-    }
-
-    public static func ==(lhs: HDUValue, rhs: HDUValue) -> Bool {
-        guard type(of: lhs) == type(of: rhs) else { return false }
-        return lhs.hashable == rhs.hashable
-    }
-
-    public static func !=(lhs: HDUValue, rhs: HDUValue) -> Bool {
-        guard type(of: lhs) == type(of: rhs) else { return false }
-        return lhs.hashable != rhs.hashable
-    }
 }
 
 extension HDUValue where Self : Hashable {
